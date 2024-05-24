@@ -9,6 +9,6 @@ class AppRoutes{
     '/' : (context) => FirstPage(),
     '/p1' : (context) => Page2(),
     '/info' : (context) => PersonalInfo(),
-    '/education' : (context) => EducationInfo(),
+    '/education' : (context) => EducationScreen(),
   };
 }
