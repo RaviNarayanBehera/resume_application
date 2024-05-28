@@ -1,72 +1,6 @@
-// import 'package:flutter/material.dart';
-//
-// class EducationInfo extends StatefulWidget {
-//   const EducationInfo({super.key});
-//
-//   @override
-//   State<EducationInfo> createState() => _EducationInfoState();
-// }
-//
-// class _EducationInfoState extends State<EducationInfo> {
-//   get controller => null;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Colors.lightBlue.shade500,
-//         centerTitle: true,
-//         title: const Text(
-//           'Education Info',
-//           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 27),
-//         ),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(5.0),
-//         child: Container(
-//           margin: EdgeInsets.all(10),
-//           padding: EdgeInsets.all(10),
-//           height: 360,
-//           width: double.infinity,
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//             children: [
-//               buildTextField('School/University',controller[index].txtSchool),
-//               buildTextField('Start Year'),
-//               buildTextField('End Year'),
-//               buildTextField('Percentage'),
-//
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-//
-//   TextField buildTextField(String name,TextEditingController controller) => TextField(decoration: InputDecoration(focusedBorder: OutlineInputBorder(),border: OutlineInputBorder(),labelText: '$name',hintText: 'Enter Your School/University Name'),controller: Controller,);
-// }
-//
-//
-// class ControllerModel{
-//   TextEditingController? txtSchool;
-//   TextEditingController? txtStart;
-//   TextEditingController? txtEnd;
-//   TextEditingController? txtPercentage;
-//
-//   ControllerModel({this.txtSchool,this.txtStart,this.txtEnd,this.txtPercentage});
-// }
-//
-// List<ControllerModel> controllerList = [
-//   ControllerModel(txtSchool: txtSchool,txtStart: txtStart,txtEnd: txtEnd,txtPercentage: txtPercentage),
-// ];
-//
-// TextEditingController txtSchool = TextEditingController();
-// TextEditingController txtStart = TextEditingController();
-// TextEditingController txtEnd = TextEditingController();
-// TextEditingController txtPercentage = TextEditingController();
-
-
 import 'package:flutter/material.dart';
+
+import '../Global.dart';
 
 class EducationScreen extends StatefulWidget {
   const EducationScreen({super.key});
@@ -81,17 +15,9 @@ class _EducationScreenState extends State<EducationScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlue.shade500,
-        leading: InkWell(
-            onTap: () {
-              Navigator.of(context).pop('/det');
-            },
-            child: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            )),
         centerTitle: true,
         title: const Text(
-          'Personal Info',
+          'Education',
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 27),
         ),
         actions: [
@@ -107,16 +33,22 @@ class _EducationScreenState extends State<EducationScreen> {
                   grade = txtgrade.text;
                   school = txtschool.text;
 
-                  Navigator.of(context).pushNamed('/pdf');
-
-                  Navigator.of(context).pushNamed('/prview');
                 });
               },
-              child: const Padding(
+              child:  Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.check,
-                  color: Colors.black,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/p1');
+                    school=txtschool.text;
+                    year=txtyear.text;
+                    course=txtcourse.text;
+                    grade=txtgrade.text;
+                  },
+                  child: const Icon(
+                    Icons.check,
+                    color: Colors.black,
+                  ),
                 ),
               ))
         ],
@@ -141,7 +73,7 @@ class _EducationScreenState extends State<EducationScreen> {
                                   ControllerList.removeAt(index-1);
                                 });
                               },
-                              child: Align(
+                              child: const Align(
                                 alignment: Alignment.centerRight,
                                 child: Icon(
                                   Icons.delete,
@@ -149,20 +81,18 @@ class _EducationScreenState extends State<EducationScreen> {
                               )),
                           educationbox(
                               'School/University', ControllerList[index].school!),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           educationbox('Course', ControllerList[index].course!),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           educationbox('Grade', ControllerList[index].grade!),
-                          SizedBox(height: 5,),
+                          const SizedBox(height: 5,),
                           educationbox('Year', ControllerList[index].year!),
                         ],
-
-                      )),
-
+                      ),),
                 )
               ]
           )
@@ -188,7 +118,7 @@ class _EducationScreenState extends State<EducationScreen> {
             color: Colors.lightBlue.shade500,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
@@ -204,6 +134,7 @@ class _EducationScreenState extends State<EducationScreen> {
 
   TextField educationbox(String label, TextEditingController Controller) {
     return TextField(
+      cursorColor: Colors.black,
       controller: Controller,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
@@ -213,15 +144,12 @@ class _EducationScreenState extends State<EducationScreen> {
           borderRadius: BorderRadius.circular(15),
         ),
         label: Text(label),
+        labelStyle: const TextStyle(color: Colors.black),
       ),
     );
   }
 }
 
-String? course = '';
-String? school = '';
-String? grade = '';
-String? year = '';
 TextEditingController txtcontroller = TextEditingController();
 
 class controllerModal {

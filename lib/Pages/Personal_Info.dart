@@ -4,9 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:resume_application/Global.dart';
 
 ImagePicker imagePicker = ImagePicker();
 File? fileImage;
+
 TextEditingController txtName = TextEditingController();
 TextEditingController txtAddress = TextEditingController();
 TextEditingController txtEmail = TextEditingController();
@@ -31,6 +33,42 @@ class _PersonalInfoState extends State<PersonalInfo> {
           'Personal Info',
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 27),
         ),
+        actions: [
+          InkWell(
+              onTap: () {
+                TextEditingController txtName = TextEditingController();
+                TextEditingController txtAddress = TextEditingController();
+                TextEditingController txtEmail = TextEditingController();
+                TextEditingController txtNumber = TextEditingController();
+                TextEditingController txtWeb = TextEditingController();
+
+                setState(() {
+                  Name=txtName.text;
+                  Address=txtAddress.text;
+                  Email=txtEmail.text;
+                  Number=txtNumber.text;
+                  Web=txtWeb.text;
+
+                });
+              },
+              child:  Padding(
+                padding: EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/p1');
+                    Name=txtName.text;
+                    Address=txtAddress.text;
+                    Email=txtEmail.text;
+                    Number=txtNumber.text;
+                    Web=txtWeb.text;
+                  },
+                  child: Icon(
+                    Icons.check,
+                    color: Colors.black,
+                  ),
+                ),
+              ))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -41,8 +79,26 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 radius: 60,
                 backgroundColor: Colors.lightBlue.shade200,
                 backgroundImage:
-                    (FileImage == null) ? FileImage(fileImage!) : null,
+                    (fileImage != null) ? FileImage(fileImage!) : null,
               ),
+              // Center(
+              //   child: Container(
+              //     height: 100,
+              //     width: 100,
+              //     decoration: BoxDecoration(
+              //       shape: BoxShape.circle,
+              //       image: (FileImage == null)
+              //           ? DecorationImage(
+              //           image: FileImage(fileImage!), fit: BoxFit.cover)
+              //           : DecorationImage(
+              //           image: AssetImage(
+              //               'Assets/Images/Sample_User_Icon.png'),
+              //           fit: BoxFit.cover),
+              //       // : null,
+              //       color: Colors.deepPurpleAccent.shade200,
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 height: 5,
               ),
@@ -83,12 +139,14 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 height: 10,
               ),
               TextField(
+                cursorColor: Colors.black,
                 keyboardType: TextInputType.name,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(),
                   hintText: 'Enter Your Full Name',
                   labelText: 'Name',
+                    labelStyle: TextStyle(color: Colors.black)
                 ),
                 controller: txtName,
               ),
@@ -96,37 +154,43 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 height: 15,
               ),
               TextField(
+                cursorColor: Colors.black,
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(),
                   hintText: 'xyz@gmail.com',
                   labelText: 'Email',
+                    labelStyle: TextStyle(color: Colors.black)
                 ),
                 controller: txtEmail,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TextField(
+                cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(),
                   hintText: 'Enter Your Permanent Address',
                   labelText: 'Address',
+                  labelStyle: TextStyle(color: Colors.black)
                 ),
                 controller: txtAddress,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TextField(
+                cursorColor: Colors.black,
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(),
                   hintText: '9898654691',
                   labelText: 'Phone Number',
+                    labelStyle: TextStyle(color: Colors.black)
                 ),
                 controller: txtNumber,
               ),
@@ -134,33 +198,18 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 height: 15,
               ),
               TextField(
+                cursorColor: Colors.black,
                 keyboardType: TextInputType.url,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(),
                   hintText: 'Copy URL',
                   labelText: 'Website',
+                    labelStyle: TextStyle(color: Colors.black)
                 ),
                 controller: txtWeb,
               ),
               SizedBox(height: 50,),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushNamed('/p1');
-
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Personal Info Saved',style: TextStyle(color: Colors.black,fontSize: 18),),backgroundColor: Colors.lightBlue.shade200,duration: Duration(seconds: 3),));
-                },
-                child: Container(
-                  height: 50,
-                  width: 150,
-                  decoration: BoxDecoration(
-                  color: Colors.blue,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text('Save',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),),
-                ),
-              )
             ],
           ),
         ),
