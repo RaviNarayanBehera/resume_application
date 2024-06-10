@@ -66,7 +66,7 @@ class _ExpInfoState extends State<ExpInfo> {
                 ExpControllerList.length,
                 (index) => Container(
                   height: 400,
-                  width: 380,
+                  width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
@@ -128,7 +128,7 @@ class _ExpInfoState extends State<ExpInfo> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            label: const Text('Start Date',style: TextStyle(color: Colors.black)),
+                            label: const Text('Joining Date',style: TextStyle(color: Colors.black)),
                           ),
                         ),
                       ),

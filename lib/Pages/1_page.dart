@@ -24,7 +24,7 @@ class _FirstPageState extends State<FirstPage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(8),
               child: Container(
                 height: 350,
                 width: double.infinity,
@@ -35,24 +35,24 @@ class _FirstPageState extends State<FirstPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 13,),
             const Text('Create your Resume with an easy steps',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 23,),),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 25,),
             const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('👉  Personal Info',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
-                SizedBox(height: 10,),
+                SizedBox(height: 12,),
                 Text('👉  Education      ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
-                SizedBox(height: 10,),
+                SizedBox(height: 12,),
                 Text('👉  Skills              ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
-                SizedBox(height: 10,),
+                SizedBox(height: 12,),
                 // Text('👉  Interests        ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
                 // SizedBox(height: 10,),
                 Text('👉  Experience \t\t ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
-                SizedBox(height: 10,),
+                SizedBox(height: 12,),
                 Text('👉  About You  \t  ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
-                SizedBox(height: 10,),
+                SizedBox(height: 12,),
               ],
             ),
             Column(

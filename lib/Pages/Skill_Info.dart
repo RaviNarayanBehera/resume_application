@@ -49,8 +49,8 @@ class _skillScreenState extends State<skillScreen> {
             children: [
               ... List.generate(skControllerList.length, (index) =>
                   Container(
-                    height: 120,
-                    width: 380,
+                    // height: 120,
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -59,7 +59,8 @@ class _skillScreenState extends State<skillScreen> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: TextField(
+                          child: TextFormField(
+                            maxLines: 2,
                             cursorColor: Colors.black,
                             controller: skControllerList[index].skill!,
                             decoration: InputDecoration(
@@ -69,8 +70,9 @@ class _skillScreenState extends State<skillScreen> {
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              label: const Text('skill'),
-                                labelStyle: TextStyle(color: Colors.black)
+                              label: const Text('Skills'),
+                                labelStyle: TextStyle(color: Colors.black,fontSize: 25),
+                              hintText: 'Input Your Skills',
                             ),
                           ),
                         ),

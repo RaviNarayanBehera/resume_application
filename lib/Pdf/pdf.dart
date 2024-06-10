@@ -41,11 +41,16 @@ Future<Uint8List> generatePdf()
               mainAxisAlignment: pw.MainAxisAlignment.start,
               mainAxisSize:pw.MainAxisSize.min,
               children: [
-                pw.Text('Personal Information  :- \n\n Name     \t:  $Name \n Address  :  $Address \n Email      :  $Email \n Ph.No.    :  $Number \n Website  : $Web\n\nAbout Me   :-\n\n                     $about.\n\nEducation  :- \n\n School     \t:  $school \n Course     :  $course \n Year         :  $year \n Grade       :  $grade \n\nSkills   :- \n\n My Skills is $skill.\n\nExperience :- \n\nCompany Name   :   $comp_name\nStarting Date        :   $start_date\nEnd Date       \t\t     :   $end_date\nPost                      :   $post',),
-                // pw.Text('Education  : \n\n Name     \t:  $comp_name \n Address  :  $start_date \n Email      :  $end_date \n Ph.No.    :  $grade \n\n$about'),
+                pw.Text('Personal Information',style: pw.TextStyle(color : PdfColors.red)),
 
-                // pw.Text('$school \n $course \n $year \n $grade '),
-              ],
+
+                pw.Text('Personal Information  :- \n\n Name     \t:  $Name \n Address  :  $Address \n Email      :  $Email \n Ph.No.    :  $Number \n Website  : $Web\n\nAbout Me   :-\n\n                     $about.\n\nEducation  :- \n\n School     \t:  $school \n Course     :  $course \n Year         :  $year \n Grade       :  $grade \n\nSkills   :- \n\n My Skills is $skill.\n\nExperience :- \n\nCompany Name   :   $comp_name\nStarting Date        :   $start_date\nEnd Date       \t\t     :   $end_date\nPost                      :   $post',),
+                pw.Container(
+                  height: 100,
+                  width: 100,
+                  // child:
+                )
+               ],
             ),
           )
         ]

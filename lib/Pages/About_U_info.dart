@@ -36,12 +36,12 @@ class _AboutyouState extends State<Aboutyou> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
               ... List.generate(1, (index) =>
                   Container(
-                    width: 380,
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -50,7 +50,8 @@ class _AboutyouState extends State<Aboutyou> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: TextField(
+                          child: TextFormField(
+                            maxLines: 5,
                             cursorColor: Colors.black,
                             controller:txtabout_u,
                             decoration: InputDecoration(
@@ -69,7 +70,7 @@ class _AboutyouState extends State<Aboutyou> {
                       ],
                     ),
                   ),
-              ),SizedBox(height: 500,),
+              ),const SizedBox(height: 500,),
             ],
           ),
         ),
